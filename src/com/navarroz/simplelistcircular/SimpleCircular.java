@@ -12,46 +12,46 @@ public class SimpleCircular {
     public boolean isEmpty() {
         return start == null;
     }
-    
-    public void addStart(int date){
+
+    public void addStart(int date) {
         Node newnode = new Node(date);
         if (isEmpty()) {
             start = end = newnode;
-        }else{
+        } else {
             newnode.setNext(start);
             start = newnode;
             end.setNext(newnode);
         }
     }
-    
-    public void addEnd(int date){
+
+    public void addEnd(int date) {
         Node newnode = new Node(date);
         if (isEmpty()) {
             start = end = newnode;
-        }else{
+        } else {
             end.setNext(newnode);
             end = newnode;
             end.setNext(start);
         }
     }
-    
-    public void removeStart(){
-        if (start==end) {
+
+    public void removeStart() {
+        if (start == end) {
             start = end = null;
-        }else{
+        } else {
             Node aux = start;
             start = start.getNext();
             end.setNext(start);
             aux.setNext(null);
         }
     }
-    
-    public void removeEnd(){
-        if (start==end) {
+
+    public void removeEnd() {
+        if (start == end) {
             start = end = null;
-        }else{
-            Node p = null,aux;
-            for(Node i=start;i!=end;){
+        } else {
+            Node p = null, aux;
+            for (Node i = start; i != end;) {
                 p = i;
                 i = i.getNext();
             }
@@ -61,12 +61,48 @@ public class SimpleCircular {
             aux.setNext(null);
         }
     }
-    
+
+    public void removeNode(int date) {
+        Node current = start, previous = null, aux = null;
+        do {
+            if (current.getDate() == date) {
+                if (previous == null) {
+                    if (start == end) {
+                        start = end = null;
+                        current = start;
+                    } else {
+                        aux = start;
+                        start = start.getNext();
+                        end.setNext(start);
+                        aux.setNext(null);
+                        current = start.getNext();
+                    }
+                } else {
+                    if (current == end) {
+                        aux = end;
+                        end = previous;
+                        end.setNext(start);
+                        aux.setNext(null);
+                        current = start;
+                    } else {
+                        aux = current;
+                        current = current.getNext();
+                        previous.setNext(current);
+                        aux.setNext(null);
+                    }
+                }
+            } else {
+                previous = current;
+                current = current.getNext();
+            }
+        } while (current != start);
+    }
+
     public String list() {
         String list = "";
         Node n = start;
         do {
-            list += (n.getNext() != start) ? n.getDate() + " -> " : n.getDate() +" -> ";
+            list += (n.getNext() != start) ? n.getDate() + " -> " : n.getDate() + " -> ";
             n = n.getNext();
         } while (n != start);
         return list;
