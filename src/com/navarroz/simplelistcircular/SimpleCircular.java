@@ -98,6 +98,16 @@ public class SimpleCircular {
         } while (current != start);
     }
 
+    public Node search(int date){
+        Node i = start;
+        do {
+            if (i.getDate()==date) {
+                return i;
+            }
+            i = i.getNext();
+        } while (i!=start);
+        return null;
+    }
     public String list() {
         String list = "";
         Node n = start;

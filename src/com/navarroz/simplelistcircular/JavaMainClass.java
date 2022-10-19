@@ -17,6 +17,7 @@ public class JavaMainClass {
         System.out.println("Simple circular\n"
                 + circular1.list());
         SimpleCircular circular2 = new SimpleCircular();
+        final int date = -5;//número a buscar dentro de la lista
         circular2.addStart(1);
         circular2.addStart(5);
         circular2.addStart(0);
@@ -31,6 +32,11 @@ public class JavaMainClass {
         System.out.println("Simple circular2\n"+circular2.list());
         circular2.removeNode(1);
         System.out.println("New Simple circular2\n"+circular2.list());
+        if (circular2.search(date)!=null) {//devuelve la primera ocurrencia encontrada en la lista
+            System.out.println("El nodo con el dato "+date +" si existe en la lista");
+        }else{
+            System.out.println("El nodo con el dato "+date +" no existe en la lista");
+        }
     }
     
 }
