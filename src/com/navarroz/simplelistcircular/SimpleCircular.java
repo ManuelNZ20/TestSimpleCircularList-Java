@@ -34,6 +34,17 @@ public class SimpleCircular {
             end.setNext(start);
         }
     }
+    
+    public void removeStart(){
+        if (start==end) {
+            start = end = null;
+        }else{
+            Node aux = start;
+            start = start.getNext();
+            end.setNext(start);
+            aux.setNext(null);
+        }
+    }
     public String list() {
         String list = "";
         Node n = start;

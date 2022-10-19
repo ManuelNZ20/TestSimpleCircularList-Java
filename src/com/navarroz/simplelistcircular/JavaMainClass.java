@@ -10,6 +10,7 @@ public class JavaMainClass {
         circular1.addStart(14);
         circular1.addEnd(10);
         circular1.addEnd(-85);
+        circular1.removeStart();
         System.out.println("Simple circular\n"
                 + circular1.list());
     }
