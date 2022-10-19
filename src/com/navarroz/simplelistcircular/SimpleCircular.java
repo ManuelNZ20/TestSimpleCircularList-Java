@@ -98,16 +98,53 @@ public class SimpleCircular {
         } while (current != start);
     }
 
-    public Node search(int date){
+    public Node search(int date) {
         Node i = start;
         do {
-            if (i.getDate()==date) {
+            if (i.getDate() == date) {
                 return i;
             }
             i = i.getNext();
-        } while (i!=start);
+        } while (i != start);
         return null;
     }
+
+    public void addNodeAsc(int date)//agregación ordenada de nodos de forma ascendete
+    {
+        Node newnode = new Node(date);
+        if (isEmpty()) {
+            start = end = newnode;
+        } else if (start.getDate() > newnode.getDate()) {
+            newnode.setNext(start);
+            start = newnode;
+            end.setNext(start);
+        } else {
+            Node current = start.getNext(), previous = null;
+            boolean enc = false;
+            do {
+                if (current.getDate() > newnode.getDate()) {
+                    if (previous == null) {
+                        newnode.setNext(current);
+                        start.setNext(newnode);
+                    } else {
+                        previous.setNext(newnode);
+                        newnode.setNext(current);
+                    }
+                    enc = true;
+                } else {
+                    previous = current;
+                    current = current.getNext();
+                }
+            } while (current != start && !enc);
+
+            if (!enc) {
+                end.setNext(newnode);
+                end = newnode;
+                end.setNext(start);
+            }
+        }
+    }
+
     public String list() {
         String list = "";
         Node n = start;

@@ -37,6 +37,20 @@ public class JavaMainClass {
         }else{
             System.out.println("El nodo con el dato "+date +" no existe en la lista");
         }
+        
+        SimpleCircular circular3 = new SimpleCircular();
+        circular3.addNodeAsc(9);
+        circular3.addNodeAsc(0);
+        circular3.addNodeAsc(2);
+        circular3.addNodeAsc(1);
+        circular3.addNodeAsc(4);
+        circular3.addNodeAsc(6);
+        circular3.addNodeAsc(8);
+        circular3.addNodeAsc(7);
+        circular3.addNodeAsc(5);
+        circular3.addNodeAsc(3);
+        System.out.println("New list circular\n"
+                + circular3.list());
     }
     
 }
