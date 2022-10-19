@@ -39,18 +39,33 @@ public class JavaMainClass {
         }
         
         SimpleCircular circular3 = new SimpleCircular();
-        circular3.addNodeAsc(9);
-        circular3.addNodeAsc(0);
-        circular3.addNodeAsc(2);
-        circular3.addNodeAsc(1);
-        circular3.addNodeAsc(4);
-        circular3.addNodeAsc(6);
-        circular3.addNodeAsc(8);
-        circular3.addNodeAsc(7);
-        circular3.addNodeAsc(5);
-        circular3.addNodeAsc(3);
+            circular3.addNodeAsc(9);
+            circular3.addNodeAsc(0);
+            circular3.addNodeAsc(2);
+            circular3.addNodeAsc(1);
+            circular3.addNodeAsc(4);
+            circular3.addNodeAsc(6);
+            circular3.addNodeAsc(8);
+            circular3.addNodeAsc(7);
+            circular3.addNodeAsc(5);
+            circular3.addNodeAsc(3);
         System.out.println("New list circular\n"
                 + circular3.list());
+        
+        SimpleCircular circular4 = new SimpleCircular();
+            circular4.addNodeDesc(9);
+            circular4.addNodeDesc(0);
+            circular4.addNodeDesc(2);
+            circular4.addNodeDesc(1);
+            circular4.addNodeDesc(4);
+            circular4.addNodeDesc(6);
+            circular4.addNodeDesc(8);
+            circular4.addNodeDesc(7);
+            circular4.addNodeDesc(5);
+            circular4.addNodeDesc(3);
+        System.out.println("New list circular\n"
+                + circular4.list());
+        
     }
     
 }
